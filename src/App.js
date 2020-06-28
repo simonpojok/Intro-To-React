@@ -14,12 +14,10 @@ const App = () => {
       <ThemeContext.Provider value={themehook}>
         <div>
           <NavBar />
-          <Suspense fallback={<h1>loading route ...</h1>}>
-            <Router>
-              <SearchParams path="/" />
-              <Details path="/details/:id" />
-            </Router>
-          </Suspense>
+          <Router>
+            <SearchParams path="/" />
+            <Details path="/details/:id" />
+          </Router>
         </div>
       </ThemeContext.Provider>
     </React.StrictMode>
