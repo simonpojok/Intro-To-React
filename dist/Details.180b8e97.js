@@ -289,7 +289,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-const Modal = /*#__PURE__*/(0, _react.lazy)(() => {
+const Model = /*#__PURE__*/(0, _react.lazy)(() => {
   require("_bundle_loader")(require.resolve("./Model"));
 });
 
@@ -350,7 +350,7 @@ class Details extends _react.default.Component {
         backgroundColor: themeHook[0]
       },
       onClick: this.toggleModal
-    }, "Adopt ", name)), (0, _core.jsx)("p", null, description), this.state.showModel ? (0, _core.jsx)(Modal, null, (0, _core.jsx)("div", null, (0, _core.jsx)("h1", null, "Would you like to adopt Name"), (0, _core.jsx)("div", {
+    }, "Adopt ", name)), (0, _core.jsx)("p", null, description), this.state.showModel ? (0, _core.jsx)(Model, null, (0, _core.jsx)("div", null, (0, _core.jsx)("h1", null, "Would you like to adopt Name"), (0, _core.jsx)("div", {
       className: "buttons"
     }, (0, _core.jsx)("button", {
       onClick: this.adopt

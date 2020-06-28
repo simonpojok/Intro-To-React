@@ -35006,7 +35006,21 @@ const App = () => {
 
 var _default = App;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","./SearchParams":"SearchParams.js","@reach/router":"../node_modules/@reach/router/es/index.js","./ThemeContext":"ThemeContext.js","./NavBar":"NavBar.js","@emotion/core":"../node_modules/@emotion/core/dist/core.browser.esm.js","_bundle_loader":"../node_modules/parcel-bundler/src/builtins/bundle-loader.js","./Details":[["Details.180b8e97.js","Details.js"],"Details.180b8e97.js.map","Details.js"]}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","./SearchParams":"SearchParams.js","@reach/router":"../node_modules/@reach/router/es/index.js","./ThemeContext":"ThemeContext.js","./NavBar":"NavBar.js","@emotion/core":"../node_modules/@emotion/core/dist/core.browser.esm.js","_bundle_loader":"../node_modules/parcel-bundler/src/builtins/bundle-loader.js","./Details":[["Details.180b8e97.js","Details.js"],"Details.180b8e97.js.map","Details.js"]}],"ClientApp.js":[function(require,module,exports) {
+"use strict";
+
+var _react = _interopRequireDefault(require("react"));
+
+var _reactDom = require("react-dom");
+
+var _App = _interopRequireDefault(require("./App"));
+
+var _core = require("@emotion/core");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+(0, _reactDom.hydrate)((0, _core.jsx)(_App.default, null), document.getElementById("root"));
+},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","./App":"App.js","@emotion/core":"../node_modules/@emotion/core/dist/core.browser.esm.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -35234,5 +35248,5 @@ module.exports = function loadJSBundle(bundle) {
 };
 },{}],0:[function(require,module,exports) {
 var b=require("../node_modules/parcel-bundler/src/builtins/bundle-loader.js");b.register("js",require("../node_modules/parcel-bundler/src/builtins/loaders/browser/js-loader.js"));
-},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js",0,"App.js"], null)
-//# sourceMappingURL=/App.d36a57b6.js.map
+},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js",0,"ClientApp.js"], null)
+//# sourceMappingURL=/ClientApp.2ddaf189.js.map

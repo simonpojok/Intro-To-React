@@ -6,7 +6,7 @@ import ErrorBoundaries from "./ErrorBounderies";
 import ThemeContext from "./ThemeContext";
 import { navigate } from "@reach/router";
 
-const Modal = lazy(() => {
+const Model = lazy(() => {
   import("./Model");
 });
 
@@ -62,7 +62,7 @@ class Details extends React.Component {
 
           <p>{description}</p>
           {this.state.showModel ? (
-            <Modal>
+            <Model>
               <div>
                 <h1>Would you like to adopt Name</h1>
                 <div className="buttons">
@@ -70,7 +70,7 @@ class Details extends React.Component {
                   <button onClick={this.adopt}>No, I'm monster</button>
                 </div>
               </div>
-            </Modal>
+            </Model>
           ) : null}
         </div>
       </div>
