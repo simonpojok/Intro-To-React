@@ -34990,11 +34990,13 @@ const App = () => {
   const themehook = (0, _react.useState)("darkblue");
   return (0, _core.jsx)(_react.default.StrictMode, null, (0, _core.jsx)(_ThemeContext.default.Provider, {
     value: themehook
-  }, (0, _core.jsx)("div", null, (0, _core.jsx)(_NavBar.default, null), (0, _core.jsx)(_router.Router, null, (0, _core.jsx)(_SearchParams.default, {
+  }, (0, _core.jsx)("div", null, (0, _core.jsx)(_NavBar.default, null), (0, _core.jsx)(_react.Suspense, {
+    fallback: (0, _core.jsx)("h1", null, "loading route ...")
+  }, (0, _core.jsx)(_router.Router, null, (0, _core.jsx)(_SearchParams.default, {
     path: "/"
   }), (0, _core.jsx)(Details, {
     path: "/details/:id"
-  })))));
+  }))))));
 };
 
 (0, _reactDom.render)((0, _core.jsx)(App, null), document.getElementById("root"));
