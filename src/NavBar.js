@@ -3,7 +3,12 @@ import { Link } from "@reach/router";
 import { css } from "@emotion/core";
 
 const NavBar = () => (
-  <header>
+  <header
+    css={css`
+      background-color: #333;
+      padding: 15px;
+    `}
+  >
     <Link to="/">Adopt Me!</Link>
     <span roll="img" aria-label="logo"></span>
   </header>
