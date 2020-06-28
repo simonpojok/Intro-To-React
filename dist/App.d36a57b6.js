@@ -34793,286 +34793,21 @@ const SearchParams = () => {
 
 var _default = SearchParams;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","@frontendmasters/pet":"../node_modules/@frontendmasters/pet/index.js","./useDropdown":"useDropdown.js","./results":"results.js","./ThemeContext":"ThemeContext.js","@emotion/core":"../node_modules/@emotion/core/dist/core.browser.esm.js"}],"Carousel.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","@frontendmasters/pet":"../node_modules/@frontendmasters/pet/index.js","./useDropdown":"useDropdown.js","./results":"results.js","./ThemeContext":"ThemeContext.js","@emotion/core":"../node_modules/@emotion/core/dist/core.browser.esm.js"}],"colors.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-
-var _react = _interopRequireDefault(require("react"));
-
-var _core = require("@emotion/core");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-class Carousel extends _react.default.Component {
-  constructor(...args) {
-    super(...args);
-
-    _defineProperty(this, "state", {
-      photos: [],
-      active: 0
-    });
-
-    _defineProperty(this, "handleIndexClick", event => {
-      this.setState({
-        active: +event.target.dataset.index
-      });
-    });
-  }
-
-  static getDerivedStateFromProps({
-    media
-  }) {
-    let photos = ["http://placecorgi.com/600/600"];
-
-    if (media.length) {
-      photos = media.map(({
-        large
-      }) => large);
-    }
-
-    return {
-      photos
-    };
-  }
-
-  render() {
-    const {
-      photos,
-      active
-    } = this.state;
-    return (0, _core.jsx)("div", {
-      className: "carousel"
-    }, (0, _core.jsx)("img", {
-      src: photos[active],
-      alt: "animal"
-    }), (0, _core.jsx)("div", {
-      className: "carousel-smaller"
-    }, photos.map((photo, index) => (0, _core.jsx)("img", {
-      key: photo,
-      src: photo,
-      "data-index": index,
-      onClick: this.handleIndexClick,
-      className: index === active ? "active" : "",
-      alt: "Animal thumbnail"
-    }))));
-  }
-
-}
-
-var _default = Carousel;
-exports.default = _default;
-},{"react":"../node_modules/react/index.js","@emotion/core":"../node_modules/@emotion/core/dist/core.browser.esm.js"}],"ErrorBounderies.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = _interopRequireWildcard(require("react"));
-
-var _router = _interopRequireWildcard(require("@reach/router"));
-
-var _core = require("@emotion/core");
-
-function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-class ErrorBoundaries extends _react.Component {
-  constructor(...args) {
-    super(...args);
-
-    _defineProperty(this, "state", {
-      hasError: false,
-      redirect: false
-    });
-  }
-
-  static getDerivedStateFromError() {
-    return {
-      hasError: true
-    };
-  }
-
-  componentDidCatch(error, info) {
-    console.error("ErrorBoundary Caught an error", error, info);
-  }
-
-  componentDidUpdate() {
-    if (this.state.hasError) {
-      setTimeout(() => this.setState({
-        redirect: true
-      }), 5000);
-    }
-  }
-
-  render() {
-    if (this.state.redirect) {
-      return (0, _core.jsx)(_router.Redirect, {
-        to: "/"
-      });
-    }
-
-    if (this.state.hasError) {
-      return (0, _core.jsx)("h1", null, "There was an error with this loading. ", (0, _core.jsx)(_router.default, {
-        to: "/"
-      }, "Click Here"), "to go back to the home page or wait five seconds.");
-    }
-
-    return this.props.children;
-  }
-
-}
-
-var _default = ErrorBoundaries;
-exports.default = _default;
-},{"react":"../node_modules/react/index.js","@reach/router":"../node_modules/@reach/router/es/index.js","@emotion/core":"../node_modules/@emotion/core/dist/core.browser.esm.js"}],"Model.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = _interopRequireWildcard(require("react"));
-
-var _reactDom = require("react-dom");
-
-var _core = require("@emotion/core");
-
-function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-const modalRoot = document.getElementById("modal");
-
-const Modal = ({
-  children
-}) => {
-  const elRef = (0, _react.useRef)(null);
-
-  if (!elRef.current) {
-    elRef.current = document.createElement("div");
-  }
-
-  (0, _react.useEffect)(() => {
-    modalRoot.appendChild(elRef.current);
-    return () => modalRoot.removeChild(elRef.current);
-  });
-  return /*#__PURE__*/(0, _reactDom.createPortal)((0, _core.jsx)("div", null, children), elRef.current);
+var _default = {
+  primary: "#bf3334",
+  secondary: "#d9c148",
+  dark: "#122622",
+  light: "81a69b"
 };
-
-var _default = Modal;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","@emotion/core":"../node_modules/@emotion/core/dist/core.browser.esm.js"}],"Details.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = DetailsWithErrorBoundary;
-
-var _react = _interopRequireDefault(require("react"));
-
-var _pet = _interopRequireDefault(require("@frontendmasters/pet"));
-
-var _Carousel = _interopRequireDefault(require("./Carousel"));
-
-var _ErrorBounderies = _interopRequireDefault(require("./ErrorBounderies"));
-
-var _ThemeContext = _interopRequireDefault(require("./ThemeContext"));
-
-var _router = require("@reach/router");
-
-var _Model = _interopRequireDefault(require("./Model"));
-
-var _core = require("@emotion/core");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-class Details extends _react.default.Component {
-  constructor() {
-    super();
-
-    _defineProperty(this, "toggleModal", () => this.setState({
-      showModel: !this.state.showModel
-    }));
-
-    _defineProperty(this, "adopt", () => (0, _router.navigate)(this.state.url));
-
-    this.state = {
-      loading: true,
-      showModel: false
-    };
-  }
-
-  componentDidMount() {
-    _pet.default.animal(+this.props.id).then(({
-      animal
-    }) => {
-      this.setState({
-        url: animal.url,
-        name: animal.name,
-        animal: animal.type,
-        location: `${animal.contact.address.city}, ${animal.contact.address.state}`,
-        description: animal.description,
-        media: animal.photos,
-        breed: animal.breeds.primary,
-        loading: false
-      });
-    }).catch(err => this.setState({
-      error: err
-    }));
-  }
-
-  render() {
-    if (this.state.loading) {
-      return (0, _core.jsx)("h1", null, "loading \u2026 ");
-    }
-
-    const {
-      animal,
-      breed,
-      location,
-      description,
-      media,
-      name
-    } = this.state;
-    return (0, _core.jsx)("div", {
-      className: "details"
-    }, (0, _core.jsx)(_Carousel.default, {
-      media: media
-    }), (0, _core.jsx)("div", null, (0, _core.jsx)("h1", null, name), (0, _core.jsx)("h2", null, `${animal} — ${breed} — ${location}`), (0, _core.jsx)(_ThemeContext.default.Consumer, null, themeHook => (0, _core.jsx)("button", {
-      style: {
-        backgroundColor: themeHook[0]
-      },
-      onClick: this.toggleModal
-    }, "Adopt ", name)), (0, _core.jsx)("p", null, description), this.state.showModel ? (0, _core.jsx)(_Model.default, null, (0, _core.jsx)("div", null, (0, _core.jsx)("h1", null, "Would you like to adopt Name"), (0, _core.jsx)("div", {
-      className: "buttons"
-    }, (0, _core.jsx)("button", {
-      onClick: this.adopt
-    }, "Yes"), (0, _core.jsx)("button", {
-      onClick: this.adopt
-    }, "No, I'm monster")))) : null));
-  }
-
-}
-
-function DetailsWithErrorBoundary(props) {
-  return (0, _core.jsx)(_ErrorBounderies.default, null, (0, _core.jsx)(Details, props));
-}
-},{"react":"../node_modules/react/index.js","@frontendmasters/pet":"../node_modules/@frontendmasters/pet/index.js","./Carousel":"Carousel.js","./ErrorBounderies":"ErrorBounderies.js","./ThemeContext":"ThemeContext.js","@reach/router":"../node_modules/@reach/router/es/index.js","./Model":"Model.js","@emotion/core":"../node_modules/@emotion/core/dist/core.browser.esm.js"}],"NavBar.js":[function(require,module,exports) {
+},{}],"NavBar.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -35085,6 +34820,10 @@ var _react = _interopRequireWildcard(require("react"));
 var _router = require("@reach/router");
 
 var _core = require("@emotion/core");
+
+var _colors = _interopRequireDefault(require("./colors"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
 
@@ -35096,7 +34835,7 @@ const NavBar = () => {
   const [padding, setPadding] = (0, _react.useState)(15);
   return (0, _core.jsx)("header", {
     onClick: () => setPadding(padding + 15),
-    css: /*#__PURE__*/(0, _core.css)("background-color:", color, ";padding:", padding, "px;;label:NavBar;")
+    css: /*#__PURE__*/(0, _core.css)("background-color:", _colors.default.primary, ";padding:", padding, "px;;label:NavBar;")
   }, (0, _core.jsx)(_router.Link, {
     to: "/"
   }, "Adopt Me!"), (0, _core.jsx)("span", {
@@ -35107,7 +34846,122 @@ const NavBar = () => {
 
 var _default = NavBar;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","@reach/router":"../node_modules/@reach/router/es/index.js","@emotion/core":"../node_modules/@emotion/core/dist/core.browser.esm.js"}],"App.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","@reach/router":"../node_modules/@reach/router/es/index.js","@emotion/core":"../node_modules/@emotion/core/dist/core.browser.esm.js","./colors":"colors.js"}],"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+var bundleURL = null;
+
+function getBundleURLCached() {
+  if (!bundleURL) {
+    bundleURL = getBundleURL();
+  }
+
+  return bundleURL;
+}
+
+function getBundleURL() {
+  // Attempt to find the URL of the current script and use that as the base URL
+  try {
+    throw new Error();
+  } catch (err) {
+    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
+
+    if (matches) {
+      return getBaseURL(matches[0]);
+    }
+  }
+
+  return '/';
+}
+
+function getBaseURL(url) {
+  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)\/[^/]+$/, '$1') + '/';
+}
+
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+},{}],"../node_modules/parcel-bundler/src/builtins/bundle-loader.js":[function(require,module,exports) {
+var getBundleURL = require('./bundle-url').getBundleURL;
+
+function loadBundlesLazy(bundles) {
+  if (!Array.isArray(bundles)) {
+    bundles = [bundles];
+  }
+
+  var id = bundles[bundles.length - 1];
+
+  try {
+    return Promise.resolve(require(id));
+  } catch (err) {
+    if (err.code === 'MODULE_NOT_FOUND') {
+      return new LazyPromise(function (resolve, reject) {
+        loadBundles(bundles.slice(0, -1)).then(function () {
+          return require(id);
+        }).then(resolve, reject);
+      });
+    }
+
+    throw err;
+  }
+}
+
+function loadBundles(bundles) {
+  return Promise.all(bundles.map(loadBundle));
+}
+
+var bundleLoaders = {};
+
+function registerBundleLoader(type, loader) {
+  bundleLoaders[type] = loader;
+}
+
+module.exports = exports = loadBundlesLazy;
+exports.load = loadBundles;
+exports.register = registerBundleLoader;
+var bundles = {};
+
+function loadBundle(bundle) {
+  var id;
+
+  if (Array.isArray(bundle)) {
+    id = bundle[1];
+    bundle = bundle[0];
+  }
+
+  if (bundles[bundle]) {
+    return bundles[bundle];
+  }
+
+  var type = (bundle.substring(bundle.lastIndexOf('.') + 1, bundle.length) || bundle).toLowerCase();
+  var bundleLoader = bundleLoaders[type];
+
+  if (bundleLoader) {
+    return bundles[bundle] = bundleLoader(getBundleURL() + bundle).then(function (resolved) {
+      if (resolved) {
+        module.bundle.register(id, resolved);
+      }
+
+      return resolved;
+    }).catch(function (e) {
+      delete bundles[bundle];
+      throw e;
+    });
+  }
+}
+
+function LazyPromise(executor) {
+  this.executor = executor;
+  this.promise = null;
+}
+
+LazyPromise.prototype.then = function (onSuccess, onError) {
+  if (this.promise === null) this.promise = new Promise(this.executor);
+  return this.promise.then(onSuccess, onError);
+};
+
+LazyPromise.prototype.catch = function (onError) {
+  if (this.promise === null) this.promise = new Promise(this.executor);
+  return this.promise.catch(onError);
+};
+},{"./bundle-url":"../node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"App.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireWildcard(require("react"));
@@ -35117,8 +34971,6 @@ var _reactDom = require("react-dom");
 var _SearchParams = _interopRequireDefault(require("./SearchParams"));
 
 var _router = require("@reach/router");
-
-var _Details = _interopRequireDefault(require("./Details"));
 
 var _ThemeContext = _interopRequireDefault(require("./ThemeContext"));
 
@@ -35132,19 +34984,21 @@ function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return 
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
+const Details = /*#__PURE__*/(0, _react.lazy)(() => require("_bundle_loader")(require.resolve("./Details")));
+
 const App = () => {
   const themehook = (0, _react.useState)("darkblue");
   return (0, _core.jsx)(_react.default.StrictMode, null, (0, _core.jsx)(_ThemeContext.default.Provider, {
     value: themehook
   }, (0, _core.jsx)("div", null, (0, _core.jsx)(_NavBar.default, null), (0, _core.jsx)(_router.Router, null, (0, _core.jsx)(_SearchParams.default, {
     path: "/"
-  }), (0, _core.jsx)(_Details.default, {
+  }), (0, _core.jsx)(Details, {
     path: "/details/:id"
   })))));
 };
 
 (0, _reactDom.render)((0, _core.jsx)(App, null), document.getElementById("root"));
-},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","./SearchParams":"SearchParams.js","@reach/router":"../node_modules/@reach/router/es/index.js","./Details":"Details.js","./ThemeContext":"ThemeContext.js","./NavBar":"NavBar.js","@emotion/core":"../node_modules/@emotion/core/dist/core.browser.esm.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","./SearchParams":"SearchParams.js","@reach/router":"../node_modules/@reach/router/es/index.js","./ThemeContext":"ThemeContext.js","./NavBar":"NavBar.js","@emotion/core":"../node_modules/@emotion/core/dist/core.browser.esm.js","_bundle_loader":"../node_modules/parcel-bundler/src/builtins/bundle-loader.js","./Details":[["Details.180b8e97.js","Details.js"],"Details.180b8e97.js.map","Details.js"]}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -35348,5 +35202,29 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","App.js"], null)
+},{}],"../node_modules/parcel-bundler/src/builtins/loaders/browser/js-loader.js":[function(require,module,exports) {
+module.exports = function loadJSBundle(bundle) {
+  return new Promise(function (resolve, reject) {
+    var script = document.createElement('script');
+    script.async = true;
+    script.type = 'text/javascript';
+    script.charset = 'utf-8';
+    script.src = bundle;
+
+    script.onerror = function (e) {
+      script.onerror = script.onload = null;
+      reject(e);
+    };
+
+    script.onload = function () {
+      script.onerror = script.onload = null;
+      resolve();
+    };
+
+    document.getElementsByTagName('head')[0].appendChild(script);
+  });
+};
+},{}],0:[function(require,module,exports) {
+var b=require("../node_modules/parcel-bundler/src/builtins/bundle-loader.js");b.register("js",require("../node_modules/parcel-bundler/src/builtins/loaders/browser/js-loader.js"));
+},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js",0,"App.js"], null)
 //# sourceMappingURL=/App.d36a57b6.js.map

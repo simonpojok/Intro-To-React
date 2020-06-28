@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "@reach/router";
 import { css } from "@emotion/core";
-
+import colors from "./colors";
 const color = "pink";
 
 const NavBar = () => {
@@ -10,7 +10,7 @@ const NavBar = () => {
     <header
       onClick={() => setPadding(padding + 15)}
       css={css`
-        background-color: ${color};
+        background-color: ${colors.primary};
         padding: ${padding}px;
       `}
     >
