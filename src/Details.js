@@ -1,11 +1,14 @@
 // replace Details.js
-import React from "react";
+import React, { lazy } from "react";
 import pet from "@frontendmasters/pet";
 import Carousel from "./Carousel";
 import ErrorBoundaries from "./ErrorBounderies";
 import ThemeContext from "./ThemeContext";
 import { navigate } from "@reach/router";
-import Modal from "./Model";
+
+const Modal = lazy(() => {
+  import("./Model");
+});
 
 class Details extends React.Component {
   constructor() {
